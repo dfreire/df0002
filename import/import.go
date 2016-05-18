@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 )
@@ -16,7 +17,12 @@ type Section struct {
 func main() {
 	dat, err := ioutil.ReadFile("../exported/iOS_en.json")
 	check(err)
-	fmt.Print(string(dat))
+
+	exported := Exported{}
+	err = json.Unmarshal(dat, &exported)
+	check(err)
+
+	fmt.Println(exported)
 }
 
 func check(e error) {

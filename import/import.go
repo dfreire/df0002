@@ -11,7 +11,23 @@ type Exported struct {
 }
 
 type Section struct {
-	Title string `json:"title"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	Image       string `json:"image"`
+	Wines       []Wine `json:"wines"`
+}
+
+type Wine struct {
+	Title       string      `json:"title"`
+	Description string      `json:"description"`
+	Image       string      `json:"image"`
+	Region      string      `json:"region"`
+	TechSheets  []TechSheet `json:"techSheets"`
+}
+
+type TechSheet struct {
+	Title        string `json:"title"`
+	Vinification string `json:"vinification"`
 }
 
 func main() {

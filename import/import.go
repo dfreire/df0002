@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
+	"gopkg.in/yaml.v2"
 )
 
 type Exported struct {
@@ -39,6 +41,10 @@ func main() {
 	check(err)
 
 	fmt.Println(exported)
+
+	m, err := yaml.Marshal(&exported)
+	check(err)
+	fmt.Printf(string(m))
 }
 
 func check(e error) {

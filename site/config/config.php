@@ -31,11 +31,23 @@ of the system, please check out http://getkirby.com/docs/advanced/options
 
 c::set('languages', array(
   array(
+    'name'    => 'Português',
+    'code'    => 'pt',
+    'locale'  => 'pt_PT.utf-8',
+    'default' => true,
+    'url'     => '/pt'
+  ),
+  array(
     'name'    => 'English',
     'code'    => 'en',
     'locale'  => 'en_US.utf-8',
-    'default' => true,
-    'url'     => '/'
+    'url'     => '/en'
+  ),
+  array(
+    'name'    => 'Português',
+    'code'    => 'fr',
+    'locale'  => 'fr_FR.utf-8',
+    'url'     => '/fr'
   ),
   array(
     'name'    => 'Deutsch',

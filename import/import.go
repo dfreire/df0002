@@ -8,26 +8,26 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type Exported struct {
-	Sections []Section `json:"sections"`
+type exported struct {
+	Sections []section `json:"sections"`
 }
 
-type Section struct {
+type section struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	Image       string `json:"image"`
-	Wines       []Wine `json:"wines"`
+	Wines       []wine `json:"wines"`
 }
 
-type Wine struct {
+type wine struct {
 	Title       string      `json:"title"`
 	Description string      `json:"description"`
 	Image       string      `json:"image"`
 	Region      string      `json:"region"`
-	TechSheets  []TechSheet `json:"techSheets"`
+	TechSheets  []techSheet `json:"techSheets"`
 }
 
-type TechSheet struct {
+type techSheet struct {
 	Title        string `json:"title"`
 	Vinification string `json:"vinification"`
 }
@@ -36,13 +36,13 @@ func main() {
 	dat, err := ioutil.ReadFile("../exported/iOS_en.json")
 	check(err)
 
-	exported := Exported{}
-	err = json.Unmarshal(dat, &exported)
+	exp := exported{}
+	err = json.Unmarshal(dat, &exp)
 	check(err)
 
-	fmt.Println(exported)
+	fmt.Println(exp)
 
-	m, err := yaml.Marshal(&exported)
+	m, err := yaml.Marshal(&exp)
 	check(err)
 	fmt.Printf(string(m))
 }
